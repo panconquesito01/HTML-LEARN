@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plataforma Educativa</title>
+
+  <!-- Tipografía -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Variables y estilos generales -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <a href="index.html" class="header__logo">
+      <img src="assets/images/logo.png" alt="Logo Plataforma Educativa" class="logo-img">
+    </a>
+    <nav class="nav">
+      <a href="index.html" class="nav__link active">Inicio</a>
+      <a href="about.html" class="nav__link">Acerca de</a>
+      <a href="modulos/html.html" class="nav__link">HTML</a>
+      <a href="modulos/css.html" class="nav__link">CSS</a>
+      <a href="modulos/js.html" class="nav__link">JavaScript</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="content-grid">
+      <article class="card">
+        <img src="assets/images/modules/html-logo.png" alt="Logo HTML5">
+        <div class="badges">
+          <span class="badge">SECUNDARIA</span>
+          <span class="badge">10°</span>
+        </div>
+        <h3><a href="modulos/html.html">Introducción a HTML5</a></h3>
+        <p>HTML5 es la evolución del lenguaje para estructurar contenido y soportar multimedia en la Web.</p>
+      </article>
+
+      <article class="card">
+        <img src="assets/images/modules/css-logo.png" alt="Logo CSS3">
+        <div class="badges">
+          <span class="badge">SECUNDARIA</span>
+          <span class="badge">10°</span>
+        </div>
+        <h3><a href="modulos/css.html">Introducción a CSS</a></h3>
+        <p>Aprende a usar selectores, colores y tipografías para dar estilo a tus páginas.</p>
+      </article>
+
+      <article class="card">
+        <img src="assets/images/modules/js-logo.png" alt="Logo JavaScript">
+        <div class="badges">
+          <span class="badge">MEDIA</span>
+          <span class="badge">10°</span>
+        </div>
+        <h3><a href="modulos/js.html">Introducción a JavaScript</a></h3>
+        <p>JavaScript permite escuchar eventos y modificar la estructura de la página en tiempo real.</p>
+      </article>
+      <!-- …más tarjetas -->
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Equipo Educativo</p>
+    <ul class="footer__links">
+      <li><a href="assets-manifest.json">Versionamiento</a></li>
+      <li><a href="https://github.com/panconquesito01" target="_blank">GitHub</a></li>
+    </ul>
+  </footer>
+
+  <!-- Scripts de la plataforma -->
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/modules.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

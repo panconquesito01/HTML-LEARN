@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introducción a CSS</title>
+
+  <!-- Tipografía -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Variables y estilos generales -->
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+
+  <!-- Prism Light Theme (fondo claro) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
+  />
+
+  <!-- Override para <pre> con fondo claro y borde acentuado -->
+  <style>
+    pre[class*="language-"] {
+      background: #f5f5f5 !important;
+      border-left: 4px solid var(--clr-accent) !important;
+      color: #333 !important;
+      padding: var(--sp) var(--sp) !important;
+      overflow: auto;
+      border-radius: var(--radius);
+      box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
+    }
+    pre[class*="language-"] code {
+      background: none !important;
+      color: inherit !important;
+      padding: 0 !important;
+    }
+    pre[class*="language-"]::before {
+      display: none !important;
+    }
+  </style>
+
+  <!-- Metadatos SEO y Open Graph -->
+  <meta name="description" content="Introducción a CSS3: Box Model, selectores, Flexbox, Grid y técnicas responsive para décimo grado.">
+  <meta property="og:title" content="Introducción a CSS">
+  <meta property="og:description" content="Fundamentos y ejemplos de CSS para estudiantes de décimo grado.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="../assets/images/modules/css-diagram.png">
+</head>
+<body>
+  <header class="header">
+    <a href="../index.html" class="header__logo">
+      <img src="../assets/images/logo.png" alt="Plataforma Educativa" class="logo-img">
+    </a>
+    <nav class="nav nav">
+      <a href="../index.html" class="nav__link">Inicio</a>
+      <a href="../about.html" class="nav__link">Acerca de</a>
+      <a href="html.html" class="nav__link">HTML</a>
+      <a href="css.html" class="nav__link active">CSS</a>
+      <a href="js.html" class="nav__link">JavaScript</a>
+    </nav>
+  </header>
+
+  <main class="module-page">
+    <aside class="module-toc">
+      <h2>Índice</h2>
+      <ul>
+        <li><a href="#box-model">Box Model</a></li>
+        <li><a href="#selectores">Selectores y Especificidad</a></li>
+        <li><a href="#colores-tipografia">Colores y Tipografía</a></li>
+        <li><a href="#flexbox">Flexbox</a></li>
+        <li><a href="#grid">CSS Grid</a></li>
+        <li><a href="#media-queries">Media Queries</a></li>
+        <li><a href="#transiciones">Transiciones y Animaciones</a></li>
+        <li><a href="#variables">Variables CSS</a></li>
+        <li><a href="#pseudo-elementos">Pseudo-elementos y Pseudo-clases</a></li>
+        <li><a href="#practica">Buenas Prácticas</a></li>
+      </ul>
+    </aside>
+
+    <div class="module-content">
+
+      <section id="que-es-css">
+  <h2>¿Qué es CSS?</h2>
+  <p>
+    CSS (Cascading Style Sheets) es el lenguaje que define cómo se muestran los documentos HTML en pantalla.
+    Permite controlar el diseño, los colores, las fuentes, los márgenes, el espaciado y las distribuciones de los elementos,
+    separando la estructura (HTML) de la presentación (CSS).
+  </p>
+</section>
+
+      <section id="box-model">
+        <h2>Box Model</h2>
+        <p>
+          El <strong>Box Model</strong> define cómo se calculan ancho, margen, borde y relleno de cada elemento.
+          Por defecto usa <code>content-box</code>, pero con <code>box-sizing: border-box</code> incluimos
+          padding y borde en el ancho total.
+        </p>
+        <pre class="line-numbers"><code class="language-css">/* Establecer border-box global */
+* {
+  box-sizing: border-box;
+}
+
+/* Ejemplo de box model */
+.container {
+  width: 300px;
+  padding: 20px;
+  border: 5px solid #00b9a7;
+  margin: 10px auto;
+}</code></pre>
+      </section>
+
+      <section id="selectores">
+        <h2>Selectores y Especificidad</h2>
+        <p>
+          Los selectores en CSS permiten apuntar a elementos HTML. La especificidad decide cuál estilo se aplica.
+        </p>
+        <pre class="line-numbers"><code class="language-css">/* Selector de etiqueta */
+h1 {
+  color: #8835ee;
+}
+
+/* Selector de clase */
+.card {
+  background: #1e1e1e;
+}
+
+/* Selector de ID (más específico) */
+#hero {
+  padding: 2rem;
+}
+
+/* Especificidad: más específico gana */
+header nav a {
+  text-transform: uppercase;
+}</code></pre>
+      </section>
+
+      <section id="colores-tipografia">
+        <h2>Colores y Tipografía</h2>
+        <p>
+          CSS3 facilita el uso de colores y fuentes web. Usamos variables para mantener consistencia.
+        </p>
+        <pre class="line-numbers"><code class="language-css">:root {
+  --clr-primary: #8835ee;
+  --clr-text: #e0e0e0;
+  --ff-primary: 'Poppins', sans-serif;
+}
+
+body {
+  font-family: var(--ff-primary);
+  color: var(--clr-text);
+  background: #121212;
+}
+
+/* Fondos y gradientes */
+.hero {
+  background: linear-gradient(45deg, var(--clr-primary), #00b9a7);
+}</code></pre>
+      </section>
+
+      <section id="flexbox">
+        <h2>Flexbox</h2>
+        <p>
+          Flexbox es un sistema de diseño unidimensional que facilita la alineación y distribución.
+        </p>
+        <pre class="line-numbers"><code class="language-css">/* Contenedor flex */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Ítems flex */
+.nav__link {
+  margin: 0 var(--sp);
+}</code></pre>
+      </section>
+
+      <section id="grid">
+        <h2>CSS Grid</h2>
+        <p>
+          CSS Grid es un sistema bidimensional de cuadrícula ideal para layouts complejos.
+        </p>
+        <pre class="line-numbers"><code class="language-css">.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--sp-lg);
+}</code></pre>
+      </section>
+
+      <section id="media-queries">
+        <h2>Media Queries</h2>
+        <p>
+          Diseños responsivos que cambian con el tamaño de pantalla.
+        </p>
+        <pre class="line-numbers"><code class="language-css">/* Mobile-first */
+.container {
+  padding: var(--sp);
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 960px;
+  }
+}</code></pre>
+      </section>
+
+      <section id="transiciones">
+        <h2>Transiciones y Animaciones</h2>
+        <p>
+          Microinteracciones con <code>transition</code> y animaciones avanzadas con <code>@keyframes</code>.
+        </p>
+        <pre class="line-numbers"><code class="language-css">/* Transición suave */
+.button {
+  background: var(--clr-primary);
+  transition: background 0.3s ease;
+}
+.button:hover {
+  background: var(--clr-primary-light);
+}
+
+/* Animación con keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.modal {
+  animation: fadeIn 0.5s ease-out forwards;
+}</code></pre>
+      </section>
+
+      <section id="variables">
+        <h2>Variables CSS</h2>
+        <p>
+          Las custom properties permiten temas dinámicos y mantenimiento más sencillo.
+        </p>
+        <pre class="line-numbers"><code class="language-css">/* Definir variables */
+:root {
+  --spacing: 1rem;
+  --radius: 0.5rem;
+}
+
+/* Usar variables */
+.card {
+  padding: var(--spacing);
+  border-radius: var(--radius);
+}</code></pre>
+      </section>
+
+      <section id="pseudo-elementos">
+        <h2>Pseudo-elementos y Pseudo-clases</h2>
+        <p>
+          Añade estilos a partes del elemento o estados específicos.
+        </p>
+        <pre class="line-numbers"><code class="language-css">/* Pseudo-elemento before */
+.button::before {
+  content: '👉';
+  margin-right: 0.5rem;
+}
+
+/* Pseudo-clase hover */
+a:hover {
+  text-decoration: underline;
+}</code></pre>
+      </section>
+
+      <section id="practica">
+        <h2>Buenas Prácticas</h2>
+        <ul>
+          <li>Mobile-first</li>
+          <li>Variables para colores y espaciados</li>
+          <li>Metodología BEM para clases</li>
+          <li>Accesibilidad y contraste ≥ 4.5:1</li>
+        </ul>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Equipo Educativo</p>
+    <ul class="footer__links">
+      <li><a href="assets-manifest.json">Versionamiento</a></li>
+      <li><a href="https://github.com/panconquesito01" target="_blank">GitHub</a></li>
+    </ul>
+  </footer>
+
+  <!-- Prism JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+
+  <!-- Scripts de la plataforma -->
+  <script src="../assets/js/utils.js"></script>
+  <script src="../assets/js/modules.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

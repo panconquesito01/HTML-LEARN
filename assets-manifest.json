@@ -1,0 +1,17 @@
+{
+  "css/variables.css": "variables.a1b2c3d4.css",
+  "css/styles.css": "styles.e5f6g7h8.css",
+  "js/utils.js": "utils.i9j0k1l2.js",
+  "js/modules.js": "modules.m3n4o5p6.js",
+  "js/main.js": "main.q7r8s9t0.js",
+  "images/logo.png": "logo.u1v2w3x4.png",
+  "images/modules/html-logo.png": "html-logo.y5z6a7b8.png",
+  "images/modules/css-logo.png": "css-logo.c9d0e1f2.png",
+  "images/modules/js-logo.png": "js-logo.g3h4i5j6.png",
+  "images/modules/html-diagram.png": "html-diagram.k7l8m9n0.png",
+  "images/modules/css-diagram.png": "css-diagram.o1p2q3r4.png",
+  "images/modules/js-diagram.png": "js-diagram.s5t6u7v8.png",
+  "images/about/juan-perez.jpg": "juan-perez.w9x0y1z2.jpg",
+  "images/about/elena-gomez.jpg": "elena-gomez.a3b4c5d6.jpg",
+  "images/about/carlos-ruiz.jpg": "carlos-ruiz.e7f8g9h0.jpg"
+}

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo HTML5</title>
+
+  <!-- Tipografía -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Variables y estilos generales -->
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+
+  <!-- Prism Light Theme (fondo claro) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
+  />
+
+  <!-- Override para borde lateral y padding de <pre> -->
+  <style>
+    pre[class*="language-"] {
+      background: #f5f5f5 !important;
+      border-left: 4px solid var(--clr-accent) !important;
+      color: #333 !important;
+      padding: var(--sp) var(--sp) !important;
+      overflow: auto;
+    }
+    pre[class*="language-"] code {
+      background: none !important;
+      color: inherit !important;
+    }
+    pre[class*="language-"]::before {
+      display: none !important;
+    }
+  </style>
+
+  <!-- Metadatos SEO y Open Graph -->
+  <meta name="description" content="Aprende HTML5: etiquetas, semántica, multimedia, formularios y accesibilidad.">
+  <meta property="og:title" content="Módulo HTML5">
+  <meta property="og:description" content="Fundamentos y ejemplos de HTML5 para décimo grado.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="../assets/images/modules/html-diagram.png">
+</head>
+<body>
+  <header class="header">
+    <a href="../index.html" class="header__logo">
+      <img src="../assets/images/logo.png" alt="Plataforma Educativa" class="logo-img">
+    </a>
+    <nav class="nav nav">
+      <a href="../index.html" class="nav__link">Inicio</a>
+      <a href="../about.html" class="nav__link">Acerca de</a>
+      <a href="html.html" class="nav__link active">HTML</a>
+      <a href="css.html" class="nav__link">CSS</a>
+      <a href="js.html" class="nav__link">JavaScript</a>
+    </nav>
+    
+  </header>
+
+  <main class="module-page">
+    <aside class="module-toc">
+      <h2>Índice</h2>
+      <ul>
+        <li><a href="#que-es-html">¿Qué es HTML5?</a></li>
+        <li><a href="#estructura">Estructura básica</a></li>
+        <li><a href="#etiquetas-basicas">Etiquetas básicas</a></li>
+        <li><a href="#semantica">Semántica avanzada</a></li>
+        <li><a href="#multimedia">Multimedia</a></li>
+        <li><a href="#formularios">Formularios</a></li>
+        <li><a href="#tablas">Tablas</a></li>
+        <li><a href="#iframes">IFrames</a></li>
+        <li><a href="#accesibilidad">Accesibilidad</a></li>
+        <li><a href="#microdatos">Microdatos</a></li>
+      </ul>
+    </aside>
+
+    <div class="module-content">
+      <section id="que-es-html">
+        <h2>¿Qué es HTML5?</h2>
+        <p>
+          HTML5 es la última versión del lenguaje de marcado que usamos para crear la estructura de las páginas web.
+          Define cómo organizamos texto, imágenes, enlaces y otros recursos. Gracias a HTML5 podemos integrar audio,
+          video, gráficos vectoriales (SVG) y más, sin necesidad de plugins externos.
+        </p>
+      </section>
+
+      <section id="estructura">
+        <h2>Estructura básica</h2>
+        <pre class="line-numbers"><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Mi página&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- Contenido visible --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        <p>
+          <strong>&lt;!DOCTYPE html&gt;</strong> activa el modo estándar. El atributo
+          <code>lang="es"</code> en <code>&lt;html&gt;</code> mejora accesibilidad y SEO.
+        </p>
+      </section>
+
+      <section id="etiquetas-basicas">
+        <h2>Etiquetas básicas</h2>
+        <ul>
+          <li><code>&lt;h1&gt;…&lt;/h1&gt;</code> hasta <code>&lt;h6&gt;…&lt;/h6&gt;</code>: títulos jerárquicos.</li>
+          <li><code>&lt;p&gt;…&lt;/p&gt;</code>: párrafos de texto.</li>
+          <li><code>&lt;br&gt;</code>: salto de línea.</li>
+          <li><code>&lt;strong&gt;…&lt;/strong&gt;</code>: énfasis fuerte.</li>
+          <li><code>&lt;em&gt;…&lt;/em&gt;</code>: énfasis.</li>
+          <li><code>&lt;div&gt;…&lt;/div&gt;</code> y <code>&lt;span&gt;…&lt;/span&gt;</code>: contenedores genéricos.</li>
+        </ul>
+        <pre class="line-numbers"><code class="language-html">&lt;h1&gt;Bienvenidos&lt;/h1&gt;
+&lt;p&gt;Este es un &lt;strong&gt;ejemplo&lt;/strong&gt; de HTML&lt;/p&gt;</code></pre>
+      </section>
+
+      <section id="semantica">
+        <h2>Semántica avanzada</h2>
+        <p>HTML5 añade etiquetas que describen mejor el propósito del contenido:</p>
+        <ul>
+          <li><code>&lt;header&gt;</code> y <code>&lt;footer&gt;</code>: encabezado y pie de sección.</li>
+          <li><code>&lt;nav&gt;</code>: navegación.</li>
+          <li><code>&lt;main&gt;</code>: contenido principal.</li>
+          <li><code>&lt;article&gt;</code>: contenido independiente.</li>
+          <li><code>&lt;section&gt;</code>: agrupaciones lógicas.</li>
+          <li><code>&lt;aside&gt;</code>: contenido secundario.</li>
+          <li><code>&lt;figure&gt;</code> y <code>&lt;figcaption&gt;</code>: medios con leyenda.</li>
+        </ul>
+        <pre class="line-numbers"><code class="language-html">&lt;figure&gt;
+  &lt;img src="diagram.png" alt="Diagrama semántico"&gt;
+  &lt;figcaption&gt;Diagrama de etiquetas&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+      </section>
+
+      <section id="multimedia">
+        <h2>Multimedia</h2>
+
+        <h3>Audio</h3>
+        <pre class="line-numbers"><code class="language-html">&lt;audio controls&gt;
+  &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+  Tu navegador no soporta audio.
+&lt;/audio&gt;</code></pre>
+
+        <h3>Video</h3>
+        <pre class="line-numbers"><code class="language-html">&lt;video controls width="640"&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+  Tu navegador no soporta video.
+&lt;/video&gt;</code></pre>
+
+        <h3>Canvas</h3>
+        <pre class="line-numbers"><code class="language-javascript">&lt;canvas id="miCanvas" width="200" height="100"&gt;
+  Tu navegador no soporta canvas.
+&lt;/canvas&gt;
+
+&lt;script&gt;
+  const ctx = document.getElementById('miCanvas').getContext('2d');
+  ctx.fillStyle = '#00aaff';
+  ctx.fillRect(10, 10, 150, 75);
+&lt;/script&gt;</code></pre>
+      </section>
+
+      <section id="formularios">
+        <h2>Formularios y validación</h2>
+        <pre class="line-numbers"><code class="language-html">&lt;form action="/enviar" method="post"&gt;
+  &lt;label&gt;Nombre:
+    &lt;input type="text" name="nombre" required minlength="3"&gt;
+  &lt;/label&gt;
+  &lt;label&gt;Email:
+    &lt;input type="email" name="email" required&gt;
+  &lt;/label&gt;
+  &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+      </section>
+
+      <section id="tablas">
+        <h2>Tablas de datos</h2>
+        <pre class="line-numbers"><code class="language-html">&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th&gt;Producto&lt;/th&gt;&lt;th&gt;Precio&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;Manzanas&lt;/td&gt;&lt;td&gt;$2/kg&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Naranjas&lt;/td&gt;&lt;td&gt;$1.5/kg&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+      </section>
+
+      <section id="iframes">
+        <h2>IFrames y embebidos</h2>
+        <pre class="line-numbers"><code class="language-html">&lt;iframe src="https://www.youtube.com/embed/VIDEO_ID" width="560" height="315" allowfullscreen&gt;&lt;/iframe&gt;</code></pre>
+      </section>
+
+      <section id="accesibilidad">
+        <h2>Accesibilidad y ARIA</h2>
+        <ul>
+          <li>Usar <code>alt</code> en imágenes y <code>label</code> en formularios.</li>
+          <li>Atributos <code>aria-label</code>, <code>role</code> donde sea necesario.</li>
+          <li>Semántica adecuada para lectores de pantalla.</li>
+        </ul>
+      </section>
+
+      <section id="microdatos">
+        <h2>Microdatos y meta tags</h2>
+        <pre class="line-numbers"><code class="language-json">&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Módulo HTML5",
+  "description": "Fundamentos de HTML5 para estudiantes de décimo grado."
+}
+&lt;/script&gt;</code></pre>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Equipo Educativo</p>
+    <ul class="footer__links">
+      <li><a href="assets-manifest.json">Versionamiento</a></li>
+      <li><a href="https://github.com/panconquesito01" target="_blank">GitHub</a></li>
+    </ul>
+  </footer>
+
+  <!-- Prism JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+
+  <!-- Scripts de la plataforma -->
+  <script src="../assets/js/utils.js"></script>
+  <script src="../assets/js/modules.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

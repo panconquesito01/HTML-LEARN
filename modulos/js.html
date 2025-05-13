@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introducción a JavaScript</title>
+
+  <!-- Tipografía -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Variables y estilos generales -->
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+
+  <!-- Prism Light Theme (fondo claro) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css"
+  />
+
+  <!-- Override para <pre> con fondo claro y borde acentuado -->
+  <style>
+    pre[class*="language-"] {
+      background: #f5f5f5 !important;
+      border-left: 4px solid var(--clr-accent) !important;
+      color: #333 !important;
+      padding: var(--sp) var(--sp) !important;
+      overflow: auto;
+      border-radius: var(--radius);
+      box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
+    }
+    pre[class*="language-"] code {
+      background: none !important;
+      color: inherit !important;
+      padding: 0 !important;
+    }
+    pre[class*="language-"]::before {
+      display: none !important;
+    }
+  </style>
+
+  <!-- Metadatos SEO y Open Graph -->
+  <meta name="description" content="Introducción a JavaScript: sintaxis, variables, funciones, DOM, eventos y asincronía.">
+  <meta property="og:title" content="Introducción a JavaScript">
+  <meta property="og:description" content="Fundamentos y ejemplos de JavaScript para décimo grado.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="../assets/images/modules/js-diagram.png">
+</head>
+<body>
+  <header class="header">
+    <a href="../index.html" class="header__logo">
+      <img src="../assets/images/logo.png" alt="Plataforma Educativa" class="logo-img">
+    </a>
+    <nav class="nav nav">
+      <a href="../index.html" class="nav__link">Inicio</a>
+      <a href="../about.html" class="nav__link">Acerca de</a>
+      <a href="html.html" class="nav__link">HTML</a>
+      <a href="css.html" class="nav__link">CSS</a>
+      <a href="js.html" class="nav__link active">JavaScript</a>
+    </nav>
+  
+  </header>
+
+  <main class="module-page">
+    <aside class="module-toc">
+      <h2>Índice</h2>
+      <ul>
+        <li><a href="#que-es-js">¿Qué es JavaScript?</a></li>
+        <li><a href="#sintaxis-basica">Sintaxis básica</a></li>
+        <li><a href="#variables-tipos">Variables y Tipos</a></li>
+        <li><a href="#funciones">Funciones</a></li>
+        <li><a href="#control-flujo">Control de flujo</a></li>
+        <li><a href="#dom">Manipulación del DOM</a></li>
+        <li><a href="#eventos">Eventos</a></li>
+        <li><a href="#asincronia">Asincronía y Fetch</a></li>
+        <li><a href="#modulos-es6">Módulos ES6</a></li>
+        <li><a href="#buenas-practicas">Buenas prácticas</a></li>
+      </ul>
+    </aside>
+
+    <div class="module-content">
+
+      <section id="que-es-js">
+        <h2>¿Qué es JavaScript?</h2>
+        <p>
+          JavaScript es un lenguaje de programación que permite crear contenido dinámico e interactivo en la web.
+          Se ejecuta en el navegador (o en el servidor con Node.js) y puede modificar la estructura de la página,
+          responder a eventos y comunicarse con servidores.
+        </p>
+      </section>
+
+      <section id="sintaxis-basica">
+        <h2>Sintaxis básica</h2>
+        <pre class="line-numbers"><code class="language-javascript">// Comentario de una línea
+/*
+  Comentario
+  de varias líneas
+*/
+let saludo = '¡Hola, mundo!';
+console.log(saludo);</code></pre>
+        <p>
+          Usamos <code>let</code> o <code>const</code> para declarar variables. 
+          <code>console.log()</code> imprime en la consola del navegador.
+        </p>
+      </section>
+
+      <section id="variables-tipos">
+        <h2>Variables y Tipos</h2>
+        <pre class="line-numbers"><code class="language-javascript">const nombre = 'Ana';      // String
+let edad = 16;                 // Number
+let activo = true;             // Boolean
+let datos = {               // Objeto
+  curso: 'Décimo grado',
+  modulo: 'JavaScript'
+};
+let lista = [1, 2, 3];         // Array</code></pre>
+        <p>
+          JavaScript es de tipado dinámico: las variables pueden cambiar de tipo durante la ejecución.
+        </p>
+      </section>
+
+      <section id="funciones">
+        <h2>Funciones</h2>
+        <pre class="line-numbers"><code class="language-javascript">// Declaración clásica
+function suma(a, b) {
+  return a + b;
+}
+
+// Arrow function (ES6)
+const resta = (a, b) => a - b;
+
+console.log(suma(5, 3), resta(5, 3));</code></pre>
+        <p>
+          Las funciones encapsulan lógica reutilizable. Las <em>arrow functions</em> omiten la palabra clave <code>function</code>.
+        </p>
+      </section>
+
+      <section id="control-flujo">
+        <h2>Control de flujo</h2>
+        <pre class="line-numbers"><code class="language-javascript">// Condicionales
+if (edad >= 18) {
+  console.log('Adulto');
+} else {
+  console.log('Menor de edad');
+}
+
+// Bucles
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+
+let j = 0;
+while (j < 3) {
+  console.log(j);
+  j++;
+}</code></pre>
+      </section>
+
+      <section id="dom">
+        <h2>Manipulación del DOM</h2>
+        <pre class="line-numbers"><code class="language-javascript">// Seleccionar elementos
+const titulo = document.querySelector('h1');
+const items = document.getElementsByClassName('item');
+
+// Cambiar texto y estilo
+titulo.textContent = 'Nuevo título';
+titulo.style.color = 'var(--clr-accent)';</code></pre>
+      </section>
+
+      <section id="eventos">
+        <h2>Eventos</h2>
+        <pre class="line-numbers"><code class="language-javascript">const boton = document.querySelector('#miBoton');
+boton.addEventListener('click', () => {
+  alert('¡Has hecho clic!');
+});</code></pre>
+        <p>
+          Con <code>addEventListener</code> escuchamos acciones del usuario (clic, teclado, scroll…) y ejecutamos código.
+        </p>
+      </section>
+
+      <section id="asincronia">
+        <h2>Asincronía y Fetch</h2>
+        <pre class="line-numbers"><code class="language-javascript">// Fetch API (promesas)
+fetch('https://api.example.com/data')
+  .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(err => console.error(err));
+
+// Async/Await (ES8)
+async function cargarDatos() {
+  try {
+    const res = await fetch('https://api.example.com/data');
+    const datos = await res.json();
+    console.log(datos);
+  } catch (error) {
+    console.error(error);
+  }
+}
+cargarDatos();</code></pre>
+      </section>
+
+      <section id="modulos-es6">
+        <h2>Módulos ES6</h2>
+        <pre class="line-numbers"><code class="language-javascript">// archivo util.js
+export function saludar(nombre) {
+  return `Hola ${nombre}`;
+}
+
+// archivo main.js
+import { saludar } from './util.js';
+console.log(saludar('María'));</code></pre>
+        <p>
+          Con <code>export</code> y <code>import</code> dividimos el código en partes reutilizables.
+        </p>
+      </section>
+
+      <section id="buenas-practicas">
+        <h2>Buenas prácticas</h2>
+        <ul>
+          <li>Usar <code>const</code> por defecto y <code>let</code> sólo si cambian.</li>
+          <li>Nombrar variables y funciones de forma descriptiva.</li>
+          <li>Evitar código global excesivo.</li>
+          <li>Comentar y mantener formato consistente (Prettier).</li>
+        </ul>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Equipo Educativo</p>
+    <ul class="footer__links">
+      <li><a href="assets-manifest.json">Versionamiento</a></li>
+      <li><a href="https://github.com/panconquesito01" target="_blank">GitHub</a></li>
+    </ul>
+  </footer>
+
+  <!-- Prism JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+
+  <!-- Scripts de la plataforma -->
+  <script src="../assets/js/utils.js"></script>
+  <script src="../assets/js/modules.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

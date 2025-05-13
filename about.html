@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Acerca de</title>
+
+  <!-- Tipografía -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Variables y estilos generales -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <!-- Metadatos SEO y Open Graph -->
+  <meta name="description" content="Conoce al equipo y las tecnologías detrás de nuestra plataforma educativa para décimo grado.">
+  <meta property="og:title" content="Acerca de – Plataforma Educativa">
+  <meta property="og:description" content="Conoce al equipo y las tecnologías detrás de nuestra plataforma educativa para décimo grado.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/about/og-image.png">
+</head>
+<body>
+  <header class="header">
+    <a href="index.html" class="header__logo">
+      <img src="assets/images/logo.png" alt="Logo Plataforma Educativa" class="logo-img">
+    </a>
+    <nav class="nav nav">
+      <a href="index.html" class="nav__link">Inicio</a>
+      <a href="about.html" class="nav__link active">Acerca de</a>
+      <a href="modulos/html.html" class="nav__link">HTML</a>
+      <a href="modulos/css.html" class="nav__link">CSS</a>
+      <a href="modulos/js.html" class="nav__link">JavaScript</a>
+    </nav>
+    
+  </header>
+
+  <main class="module-page">
+    <!-- Sección Quiénes somos -->
+    <section id="quienes-somos">
+      <h1>Quiénes somos</h1>
+      <div class="team-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:var(--sp-lg); margin-top:var(--sp-lg);">
+        <article>
+          <img src="assets/images/about/juan-perez.jpg" alt="Juan Pérez" style="width:100%; border-radius:var(--radius);">
+          <h3>Juan Pérez</h3>
+          <p>Ingeniero de Sistemas y arquitecto front-end. Lidera la integración de tecnologías dinámicas.</p>
+        </article>
+        <article>
+          <img src="assets/images/about/elena-gomez.jpg" alt="Elena Gómez" style="width:100%; border-radius:var(--radius);">
+          <h3>Elena Gómez</h3>
+          <p>Desarrolladora Frontend especializada en accesibilidad y diseño responsive.</p>
+        </article>
+        <article>
+          <img src="assets/images/about/carlos-ruiz.jpg" alt="Carlos Ruiz" style="width:100%; border-radius:var(--radius);">
+          <h3>Carlos Ruiz</h3>
+          <p>Diseñador UX/UI enfocado en experiencias limpias y modulares para estudiantes.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Sección Tecnología usada -->
+    <section id="tecnologia" style="margin-top:var(--sp-xl);">
+      <h2>Tecnología usada</h2>
+      <ul class="tech-list" style="display:flex; flex-wrap:wrap; gap:var(--sp-lg); margin-top:var(--sp); list-style:none; padding:0;">
+        <li style="flex:1 1 200px;"><strong>HTML5 Semántico</strong><br>Etiquetas: header, nav, main, section, article, footer.</li>
+        <li style="flex:1 1 200px;"><strong>CSS3 Moderno</strong><br>Flexbox, Grid, Custom Properties, BEM.</li>
+        <li style="flex:1 1 200px;"><strong>JavaScript ES6+</strong><br>Módulos, fetch, async/await, IntersectionObserver.</li>
+        <li style="flex:1 1 200px;"><strong>Animaciones</strong><br>CSS Transitions & Keyframes, GSAP opcional.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Equipo Educativo</p>
+    <ul class="footer__links">
+      <li><a href="assets-manifest.json">Versionamiento</a></li>
+      <li><a href="https://github.com/panconquesito01" target="_blank">GitHub</a></li>
+    </ul>
+  </footer>
+
+  <!-- Scripts de la plataforma -->
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/modules.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

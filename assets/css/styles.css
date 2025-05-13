@@ -1,0 +1,357 @@
+/* assets/css/styles.css */
+
+/* ================================
+   1. Paleta de Colores Dark Mode
+   ================================ */
+:root {
+  --clr-bg: #121212;
+  --clr-surface: #1e1e1e;
+  --clr-text: #e0e0e0;
+  --clr-muted: #a0a0a0;
+  --clr-heading: #ffffff;
+  --clr-primary: #8835ee;
+  --clr-primary-light: #c076fc;
+  --clr-accent: #00b9a7;
+  --clr-accent-light: #35dbd5;
+
+  --sp-xs: 0.5rem;
+  --sp:    1rem;
+  --sp-lg: 2rem;
+
+  --radius:     0.5rem;
+  --transition: 0.3s ease;
+
+  --fs-sm: 0.875rem;
+  --fs-base:1rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 2rem;
+}
+
+/* ================================
+   2. Reset y Base
+   ================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(60px + var(--sp-lg));
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  background: var(--clr-bg);
+  color: var(--clr-text);
+}
+
+/* ================================
+   3. Encabezados y Texto
+   ================================ */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--clr-heading);
+  margin-bottom: var(--sp);
+}
+
+p, ul li, ol li {
+  color: var(--clr-text);
+  margin-bottom: var(--sp);
+}
+
+.caption {
+  display: block;
+  font-size: var(--fs-sm);
+  color: var(--clr-muted);
+  text-align: right;
+  margin-top: -0.5rem;
+  margin-bottom: var(--sp-lg);
+}
+
+/* ================================
+   4. Enlaces
+   ================================ */
+a {
+  color: var(--clr-accent-light);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover {
+  color: var(--clr-accent);
+}
+
+/* ================================
+   5. Scrollbars Globales
+   ================================ */
+::-webkit-scrollbar {
+  width: 8px; height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--clr-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--clr-accent);
+  border-radius: var(--radius);
+}
+
+/* ================================
+   6. Header y Navegación
+   ================================ */
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding: var(--sp-xs) var(--sp-lg);
+  background: linear-gradient(90deg, var(--clr-primary), var(--clr-accent));
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header__logo img {
+  height: 50px;
+  filter: none;
+}
+@media (max-width: 768px) {
+  .header__logo img {
+    height: 32px;
+  }
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: var(--sp-lg);
+}
+.nav--hidden {
+  display: none;
+}
+
+.nav__link {
+  position: relative;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: var(--fs-sm);
+  color: var(--clr-text);
+  padding: var(--sp-xs) 0;
+  transition: color var(--transition);
+}
+.nav__link::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 0; height: 3px;
+  background: var(--clr-accent-light);
+  transition: width var(--transition);
+}
+.nav__link:hover,
+.nav__link.active {
+  color: var(--clr-accent-light);
+}
+.nav__link:hover::after,
+.nav__link.active::after {
+  width: 100%;
+}
+
+/* Toggle botón móvil */
+.header__toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--clr-text);
+  cursor: pointer;
+}
+@media (min-width: 769px) {
+  .header__toggle {
+    display: none;
+  }
+}
+
+/* ================================
+   7. Contenedor de tarjetas
+   ================================ */
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+  gap: var(--sp-lg);
+  padding: var(--sp-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ================================
+   8. Tarjetas y Badges
+   ================================ */
+.card {
+  position: relative;
+  background: var(--clr-surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+.card img {
+  width: 90%;
+  height: 170px;
+  object-fit: cover;
+  display: block;
+  object-position: center -100px;  
+}
+
+.badges {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  display: flex;
+  gap: 4px;
+}
+.badge {
+  background: rgba(255,255,255,0.9);
+  color: var(--clr-primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--clr-primary-light);
+}
+
+.card h3 {
+  margin: var(--sp) var(--sp);
+  font-size: 1.125rem;
+}
+.card h3 a {
+  color: var(--clr-text);
+  text-decoration: none;
+}
+.card h3 a:hover {
+  color: var(--clr-primary);
+}
+.card p {
+  margin: 0 var(--sp) var(--sp);
+  color: var(--clr-muted);
+  font-size: var(--fs-base);
+}
+
+/* ================================
+   9. Bloques de Código Prism Light
+   ================================ */
+pre[class*="language-"] {
+  background: #f5f5f5 !important;
+  border-left: 4px solid var(--clr-accent) !important;
+  color: #333 !important;
+  padding: var(--sp) var(--sp) !important;
+  overflow: auto;
+  border-radius: var(--radius);
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
+}
+pre[class*="language-"] code {
+  background: none !important;
+  color: inherit !important;
+  padding: 0 !important;
+}
+pre[class*="language-"]::before {
+  display: none !important;
+}
+
+/* ================================
+   10. Layout del Módulo (HTML/CSS/JS)
+   ================================ */
+.module-page {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--sp-lg);
+  padding: var(--sp-lg);
+  max-width: 1400px;
+  margin: var(--sp-lg) auto;
+}
+.module-toc {
+  position: sticky;
+  top: calc(60px + var(--sp-lg));
+  background: var(--clr-surface);
+  padding: var(--sp);
+  border-left: 4px solid var(--clr-primary);
+  border-radius: var(--radius);
+  max-height: calc(100vh - (60px + var(--sp-lg)*2));
+  overflow-y: auto;
+}
+.module-toc h2 {
+  margin-bottom: var(--sp);
+  font-size: var(--fs-lg);
+  color: var(--clr-primary-light);
+  text-transform: uppercase;
+}
+.module-toc ul {
+  list-style: none;
+}
+.module-toc li + li {
+  margin-top: var(--sp-xs);
+}
+.module-toc a {
+  display: block;
+  padding: var(--sp-xs) var(--sp-sm);
+  color: var(--clr-text);
+  border-radius: var(--radius);
+  transition: background var(--transition), color var(--transition);
+}
+.module-toc a:hover,
+.module-toc a.active {
+  background: var(--clr-primary);
+  color: #000;
+}
+
+/* evitar solapar títulos al hacer scroll */
+.module-page h2,
+.module-page h3 {
+  scroll-margin-top: calc(60px + var(--sp-lg));
+}
+
+/* ================================
+   11. Footer
+   ================================ */
+.footer {
+  background: var(--clr-surface);
+  text-align: center;
+  padding: var(--sp);
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.footer__links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: var(--sp);
+  margin-top: var(--sp-xs);
+}
+.footer__links a {
+  color: var(--clr-text);
+  transition: color var(--transition);
+}
+.footer__links a:hover {
+  color: var(--clr-accent-light);
+}
+
+/* ================================
+   12. Responsive
+   ================================ */
+@media (max-width: 1024px) {
+  .content-grid,
+  .module-page {
+    grid-template-columns: 1fr;
+  }
+  .module-toc {
+    position: relative;
+    top: auto;
+    max-height: none;
+    margin-bottom: var(--sp-lg);
+    border-left: none;
+    border-top: 4px solid var(--clr-primary);
+  }
+}
