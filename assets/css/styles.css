@@ -355,3 +355,68 @@ pre[class*="language-"]::before {
     border-top: 4px solid var(--clr-primary);
   }
 }
+
+/* ================================
+   12. video
+   ================================ */
+
+.video-explainer {
+  background-color: var(--clr-surface);
+  padding: 4rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.video-explainer__content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: var(--sp-lg);
+}
+
+.video-explainer__text {
+  flex: 1 1 350px;
+  text-align: center;
+}
+
+.video-explainer__text h2 {
+  font-size: var(--fs-xl);
+  color: var(--clr-heading);
+  margin-bottom: var(--sp-xs);
+}
+
+.video-explainer__text p {
+  font-size: var(--fs-base);
+  color: var(--clr-muted);
+  line-height: 1.6;
+}
+
+.video-explainer__video {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.video-explainer__video video {
+  width: auto;
+  height: 500px;
+  max-height: 80vh;
+  aspect-ratio: 9 / 16;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+  .video-explainer__content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .video-explainer__video video {
+    width: 100%;
+    height: auto;
+    max-width: 320px;
+  }
+}
